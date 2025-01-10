@@ -1,18 +1,17 @@
 package com.bobvaraioa.kubejspowah;
 
 import dev.latvian.mods.kubejs.script.ScriptType;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.TagsUpdatedEvent;
-import net.minecraftforge.eventbus.api.EventPriority;
-import net.minecraftforge.fml.common.Mod;
+import net.neoforged.bus.api.EventPriority;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.neoforge.common.NeoForge;
+import net.neoforged.neoforge.event.TagsUpdatedEvent;
 
-// The value here should match an entry in the META-INF/mods.toml file
 @Mod(KubeJSPowah.MODID)
 public class KubeJSPowah {
     public static final String MODID = "kubejspowah";
 
     public KubeJSPowah() {
-        MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGHEST, KubeJSPowah::serverReload);
+        NeoForge.EVENT_BUS.addListener(EventPriority.HIGHEST, KubeJSPowah::serverReload);
     }
 
     public static void serverReload(TagsUpdatedEvent event) {
